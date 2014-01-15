@@ -35,7 +35,42 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class ngircd {
+class ngircd(
+  $server_name = $::fqdn,
+  $ports = [ 6667, 6668 ],
+  $info = '',
+  $motd = '',
+  $ipv6 = 'yes',
+  $ipv4 = 'yes',
+  $allowed_channel_types = '#',
+  $dns = 'yes',
+) inherits ngircd::param {
 
+  package { $::ngircd::param::package_name:
+    ensure => latest,
+  }
+
+  concat { $::ngircd::param::config_file:
+    owner   => 'root',
+    group   => $::ngircd::param::group,
+    mode    => '0660',
+    warn    => true,
+    require => Package[$::ngircd::param::package_name],
+  }
+
+  concat::fragment { 'main':
+    target  => $::ngircd::param::config_file,
+    order   => '01',
+    content => template("${module_name}/global.erb"),
+  }
+
+  service { $::ngircd::param::service_name:
+    ensure    => running,
+    enable    => true,
+    require   => [
+      File[$::ngircd::param::config_file]
+    ],
+    subscribe => File[$::ngircd::param::config_file],
+  }
 
 }
