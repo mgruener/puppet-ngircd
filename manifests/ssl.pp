@@ -1,9 +1,12 @@
 # ssl configuration
 
 define ngircd::ssl(
-  $topic = undef,
-  $modes = undef,
-  $key = undef,
+  $certfile = undef,
+  $keyfile = undef,
+  $keyfilepassword = undef,
+  $ciphers = [ 'SECURE128' ],
+  $dhfile = undef,
+  $ports = [],
 ) inherits ngircd {
 
   concat::fragment { 'ssl':

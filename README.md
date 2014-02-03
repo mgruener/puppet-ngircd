@@ -7,11 +7,6 @@ License
 
 Apache License, Version 2.0
 
-Contact
--------
-
-Marius Karnauskas <marius@karnauskas.lt>
-
 Support
 -------
 

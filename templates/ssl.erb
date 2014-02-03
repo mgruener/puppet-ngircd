@@ -1,7 +1,7 @@
 [SSL]
-  CertFile =
-  CipherList = SECURE128
-  DHFile =
-  KeyFile =
-  KeyFilePassword =
-  Ports =
+  CertFile = <%= @certfiel %>
+  CipherList = <%= @ciphers.join(' ') %>
+  DHFile = <%= @dhfile %>
+  KeyFile = <%= @keyfile %>
+  KeyFilePassword = <%= @keyfilepassword %>
+  Ports = <%= @ports.join(',')

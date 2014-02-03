@@ -3,7 +3,7 @@
   AdminInfo1 = <%= @admin_info1 %>
   AdminInfo2 = <%= @admin_info2 %>
   AdminEMail = <%= @admin_email %>
-  ;HelpFile = /usr/share/doc/ngircd/Commands.txt
+  HelpFile = <%= @help_file %>
   Info = <%= @info %>
   ;Listen = 127.0.0.1
   ;MotdFile = 
@@ -13,6 +13,7 @@
   Ports = <%= @ports.join(',') %>
   ServerGID = ngircd
   ServerUID = ngircd
+  Network = abba
 
 [Limits]
   ConnectRetry = 60
@@ -37,6 +38,7 @@
   ConnectIPv6 = <%= @ipv6 %>
   DefaultUserModes = <%= @user_modes %>
   DNS = <%= @dns %>
+  Ident = <%= @ident %>
   IncludeDir = /etc/ngircd.conf.d
   MorePrivacy = <%= @more_privacy %>
   NoticeAuth = <%= @notice_auth %>

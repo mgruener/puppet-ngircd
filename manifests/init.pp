@@ -1,10 +1,8 @@
 # == Class: ngircd
 #
-# Full description of class ngircd here.
+# ngircd class installs, configures and starts ngircd service.
 #
 # === Parameters
-#
-# Document parameters here.
 #
 # [*sample_parameter*]
 #   Explanation of what this parameter affects and what it defaults to.
@@ -24,26 +22,28 @@
 # === Examples
 #
 #  class { ngircd:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    ports => [ 6667, 6668 ],
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Marius Karnauskas <marius@karnauskas.lt>
 #
 # === Copyright
 #
-# Copyright 2014 Your name here, unless otherwise noted.
+# Copyright 2014 Marius Karnauskas
 #
 class ngircd(
   $server_name = $::fqdn,
-  $ports = [ 6667, 6668 ],
+  $ports = [ 6667 ],
   $info = '',
   $motd = '',
   $ipv6 = 'yes',
   $ipv4 = 'yes',
   $allowed_channel_types = '#',
   $dns = 'yes',
+  $help_file = '/usr/share/doc/ngircd-21/Commands.txt',
+  $ident = 'yes',
 ) inherits ngircd::param {
 
   package { $::ngircd::param::package_name:
