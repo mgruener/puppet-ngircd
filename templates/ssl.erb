@@ -2,7 +2,7 @@
 <% if defined?(@certfile) -%>
   CertFile = <%= @certfile %>
 <% end -%>
-<% if defined?(@cipherlist) -%>
+<% if defined?(@ciphers) -%>
   CipherList = <%= @ciphers.join(' ') %>
 <% end -%>
 <% if defined?(@dhfile) -%>
