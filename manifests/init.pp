@@ -67,6 +67,7 @@ class ngircd(
   service { $::ngircd::param::service_name:
     ensure    => running,
     enable    => true,
+    provider  => $::ngircd::param::service_provider,
     require   => [
       File[$::ngircd::param::config_file]
     ],
