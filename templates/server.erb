@@ -1,14 +1,34 @@
 [Server]
+<% if defined?(@name) -%>
   Name = <%= @name %>
-<% if @passive == 'no' -%>
-  Host = <%= @host %>
-  Port = <%= @port %>
-  Bind = <%= @bind %>
 <% end -%>
+<% if @passive == 'no' -%>
+  <% if defined?(@host) -%>
+  Host = <%= @host %>
+  <% end -%>
+  <% if defined?(@port) -%>
+  Port = <%= @port %>
+  <% end -%>
+  <% if defined?(@bind) -%>
+  Bind = <%= @bind %>
+  <% end -%>
+<% end -%>
+<% if defined?(@local_password) -%>
   MyPassword = <%= @local_password %>
+<% end -%>
+<% if defined?(@remote_password) -%>
   PeerPassword = <%= @remote_password %>
+<% end -%>
+<% if defined?(@group) -%>
   Group = <%= @group %>
+<% end -%>
+<% if defined?(@passive) -%>
   Passive = <%= @passive %>
+<% end -%>
+<% if defined?(@ssl) -%>
   SSLConnect = <%= @ssl %>
+<% end -%>
+<% if defined?(@service_mask) -%>
   ServiceMask = <%= @service_mask %>
+<% end -%>
 

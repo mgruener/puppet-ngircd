@@ -1,5 +1,11 @@
 [Operator]
+<% if defined?(@name) -%>
   Name = <%= @name %>
+<% end -%>
+<% if defined?(@password) -%>
   Password = <%= @password %>
+<% end -%>
+<% if defined?(@mask) -%>
   Mask = <%= @mask %>
+<% end -%>
 

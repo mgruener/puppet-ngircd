@@ -1,52 +1,144 @@
 [Global]
+<% if defined?(@server_name) -%>
   Name = <%= @server_name %>.
+<% end -%>
+<% if defined?(@admin_info1) -%>
   AdminInfo1 = <%= @admin_info1 %>
+<% end -%>
+<% if defined?(@admin_info2) -%>
   AdminInfo2 = <%= @admin_info2 %>
+<% end -%>
+<% if defined?(@admin_email) -%>
   AdminEMail = <%= @admin_email %>
+<% end -%>
+<% if defined?(@help_file) -%>
   HelpFile = <%= @help_file %>
+<% end -%>
+<% if defined?(@info) -%>
   Info = <%= @info %>
-  ;Listen = 127.0.0.1
-  ;MotdFile = 
+<% end -%>
+<% if defined?(@listen) -%>
+  Listen = <%= @listen %>
+<% end -%>
+<% if defined?(@motd_file) -%>
+  MotdFile = <%= @motd_file %>
+<% end -%>
+<% if defined?(@motd) -%>
   MotdPhrase = <%= @motd %>
+<% end -%>
+<% if defined?(@password) -%>
   Password = <%= @password %>
-  PidFile = /var/run/ngircd/ngircd.pid
+<% end -%>
+<% if defined?(@pid_file) -%>
+  PidFile = <%= @pid_file %>
+<% end -%>
+<% if defined?(@ports) -%>
   Ports = <%= @ports.join(',') %>
-  ServerGID = ngircd
-  ServerUID = ngircd
-  Network = abba
+<% end -%>
+<% if defined?(@server_gid) -%>
+  ServerGID = <%= @server_gid %>
+<% end -%>
+<% if defined?(@server_uid) -%>
+  ServerUID = <%= @server_uid %>
+<% end -%>
+<% if defined?(@network) -%>
+  Network = <%= @network %>
+<% end -%>
 
 [Limits]
-  ConnectRetry = 60
-  IdleTimeout = 0
-  MaxConnections = 0
-  MaxConnectionsIP = 5
-  MaxJoins = 10
-  MaxNickLength = 9
-  MaxListSize = 100
-  PingTimeout = 120
-  PongTimeout = 20
+<% if defined?(@connect_retry) -%>
+  ConnectRetry = <%= @connect_retry %>
+<% end -%>
+<% if defined?(@idle_timeout) -%>
+  IdleTimeout = <%= @idle_timeout %>
+<% end -%>
+<% if defined?(@max_connections) -%>
+  MaxConnections = <%= @max_connections %>
+<% end -%>
+<% if defined?(@max_connections_ip) -%>
+  MaxConnectionsIP = <%= @max_connections_ip %>
+<% end -%>
+<% if defined?(@max_joins) -%>
+  MaxJoins = <%= @max_joins %>
+<% end -%>
+<% if defined?(@max_nick_length) -%>
+  MaxNickLength = <%= @max_nick_length %>
+<% end -%>
+<% if defined?(@max_list_size) -%>
+  MaxListSize = <%= @max_list_size %>
+<% end -%>
+<% if defined?(@ping_timeout) -%>
+  PingTimeout = <%= @ping_timeout %>
+<% end -%>
+<% if defined?(@pong_timeout) -%>
+  PongTimeout = <%= @pong_timeout %>
+<% end -%>
 
 [Options]
+<% if defined?(@allowed_channel_types) -%>
   AllowedChannelTypes = <%= @allowed_channel_types %>
+<% end -%>
+<% if defined?(@allow_remote_op) -%>
   AllowRemoteOper = <%= @allow_remote_op %>
+<% end -%>
+<% if defined?(@chroot_dir) -%>
   ChrootDir = <%= @chroot_dir %>
+<% end -%>
+<% if defined?(@cloak_host) -%>
   CloakHost = <%= @cloak_host %>
+<% end -%>
+<% if defined?(@cloak_host_modex) -%>
   CloakHostModeX = <%= @cloak_host_modex %>
+<% end -%>
+<% if defined?(@cloak_host_salt) -%>
   CloakHostSalt = <%= @cloak_host_salt %>
+<% end -%>
+<% if defined?(@cloak_user_to_nick) -%>
   CloakUserToNick = <%= @cloak_user_to_nick %>
+<% end -%>
+<% if defined?(@ipv4) -%>
   ConnectIPv4 = <%= @ipv4 %>
+<% end -%>
+<% if defined?(@ipv6) -%>
   ConnectIPv6 = <%= @ipv6 %>
+<% end -%>
+<% if defined?(@user_modes) -%>
   DefaultUserModes = <%= @user_modes %>
+<% end -%>
+<% if defined?(@dns) -%>
   DNS = <%= @dns %>
+<% end -%>
+<% if defined?(@ident) -%>
   Ident = <%= @ident %>
-  IncludeDir = /etc/ngircd.conf.d
+<% end -%>
+<% if defined?(@include_dir) -%>
+  IncludeDir = <%= @include_dir %>
+<% end -%>
+<% if defined?(@more_privacy) -%>
   MorePrivacy = <%= @more_privacy %>
+<% end -%>
+<% if defined?(@notice_auth) -%>
   NoticeAuth = <%= @notice_auth %>
-  OperCanUseMode = no
-  OperChanPAutoOp = yes
-  OperServerMode = no
-  RequireAuthPing = no
-  ScrubCTCP = no
-  SyslogFacility = local5
-  ;WebircPassword =
+<% end -%>
+<% if defined?(@oper_can_use_mode) -%>
+  OperCanUseMode = <%= @oper_can_use_mode %>
+<% end -%>
+<% if defined?(@oper_chanp_autoop) -%>
+  OperChanPAutoOp = <%= @oper_chanp_autoop %>
+<% end -%>
+<% if defined?(@oper_server_mode) -%>
+  OperServerMode = <%= @oper_server_mode %>
+<% end -%>
+<% if defined?(@require_auth_ping) -%>
+  RequireAuthPing = <%= @require_auth_ping %>
+<% end -%>
+<% if defined?(@scrub_ctcp) -%>
+  ScrubCTCP = <%= @scrub_ctcp %>
+<% end -%>
+<% if defined?(@syslog_facility) -%>
+  SyslogFacility = <%= @syslog_facility %>
+<% end -%>
+<% if defined?(@webirc_password) -%>
+  WebircPassword = <%= @webirc_password %>
+<% end -%>
 

@@ -1,7 +1,19 @@
 [SSL]
-  CertFile = <%= @certfiel %>
+<% if defined?(@certfile) -%>
+  CertFile = <%= @certfile %>
+<% end -%>
+<% if defined?(@cipherlist) -%>
   CipherList = <%= @ciphers.join(' ') %>
+<% end -%>
+<% if defined?(@dhfile) -%>
   DHFile = <%= @dhfile %>
+<% end -%>
+<% if defined?(@keyfile) -%>
   KeyFile = <%= @keyfile %>
+<% end -%>
+<% if defined?(@keyfilepassword) -%>
   KeyFilePassword = <%= @keyfilepassword %>
-  Ports = <%= @ports.join(',')
+<% end -%>
+<% if defined?(@ports) -%>
+  Ports = <%= @ports.join(',') %>
+<% end -%>
