@@ -87,6 +87,10 @@ class ngircd(
   $ciphers = [ 'SECURE128' ],
   $dhfile = undef,
   $ssl_ports = [ ],
+  $package_name = $::ngircd::param::package_name,
+  $config_file = $::ngircd::param::config_file,
+  $service_name = $::ngircd::param::service_name,
+  $service_provider = $::ngircd::param::service_provider,
 ) inherits ngircd::param {
 
   $myclass = $module_name
@@ -109,6 +113,14 @@ class ngircd(
   if $certfile != undef { validate_absolute_path($certfile) }
   if $keyfile != undef { validate_absolute_path($keyfile) }
   if $dhfile != undef { validate_absolute_path($dhfile) }
+  if $config_file != undef {
+    validate_absolute_path($config_file)
+  } else {
+    fail ("You have to provide ${myclass}::config_file.")
+  }
+
+  if $package_name == undef { fail("You have to provide ${myclass}::package_name.") }
+  if $service_name == undef { fail("You have to provide ${myclass}::service_name.") }
 
   validate_re($ipv6, '^(yes|no)$', "${myclass}::ipv6 may be either 'yes' or 'no' and is set to <${ipv6}>.")
   validate_re($ipv4, '^(yes|no)$', "${myclass}::ipv4 may be either 'yes' or 'no' and is set to <${ipv4}>.")
@@ -137,32 +149,32 @@ class ngircd(
     }
   }
 
-  package { $::ngircd::param::package_name:
+  package { $package_name:
     ensure => latest,
   }
 
-  concat { $::ngircd::param::config_file:
+  concat { $config_file:
     owner   => 'root',
-    group   => $::ngircd::param::group,
+    group   => $server_gid,
     mode    => '0660',
     warn    => true,
-    require => Package[$::ngircd::param::package_name],
+    require => Package[$package_name],
   }
 
   concat::fragment { 'main':
-    target  => $::ngircd::param::config_file,
+    target  => $config_file,
     order   => '01',
     content => template("${module_name}/global.erb"),
   }
 
-  service { $::ngircd::param::service_name:
+  service { $service_name:
     ensure    => running,
     enable    => true,
-    provider  => $::ngircd::param::service_provider,
+    provider  => $service_provider,
     require   => [
-      File[$::ngircd::param::config_file]
+      File[$config_file]
     ],
-    subscribe => File[$::ngircd::param::config_file],
+    subscribe => File[$config_file],
   }
 
 }
