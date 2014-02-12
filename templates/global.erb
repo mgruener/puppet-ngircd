@@ -142,7 +142,7 @@
   WebircPassword = <%= @webirc_password %>
 <% end -%>
 
-<% if defined?(@ssl_enabled) && @ssl_enabled -%>
+<% if defined?(@ssl_enabled_real) && @ssl_enabled_real -%>
 [SSL]
   <% if defined?(@certfile) -%>
   CertFile = <%= @certfile %>

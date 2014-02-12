@@ -68,7 +68,7 @@ class ngircd(
   $cloak_host = undef,
   $cloak_host_modex = undef,
   $cloak_host_salt = undef,
-  $cload_user_to_nick = 'no',
+  $cloak_user_to_nick = 'no',
   $user_modes = undef,
   $include_dir = '/etc/ngircd.conf.d',
   $more_privacy = 'no',
@@ -88,6 +88,54 @@ class ngircd(
   $dhfile = undef,
   $ssl_ports = [ ],
 ) inherits ngircd::param {
+
+  $myclass = $module_name
+
+  if !is_integer($connect_retry) { fail("${myclass}::connect_retry must be an integer and is set to <${connect_retry}>.") }
+  if !is_integer($idle_timeout) { fail("${myclass}::idle_timeout must be an integer and is set to <${idle_timeout}>.") }
+  if !is_integer($max_connections) { fail("${myclass}::max_connections must be an integer and is set to <${max_connections}>.") }
+  if !is_integer($max_connections_ip) { fail("${myclass}::max_connections_ip must be an integer and is set to <${max_connections_ip}>.") }
+  if !is_integer($max_joins) { fail("${myclass}::max_joins must be an integer and is set to <${max_joins}>.") }
+  if !is_integer($max_nick_length) { fail("${myclass}::max_nick_length must be an integer and is set to <${max_nick_length}>.") }
+  if !is_integer($max_list_size) { fail("${myclass}::max_list_size must be an integer and is set to <${max_list_size}>.") }
+  if !is_integer($ping_timeout) { fail("${myclass}::ping_timeout must be an integer and is set to <${ping_timeout}>.") }
+  if !is_integer($pong_timeout) { fail("${myclass}::pong_timeout must be an integer and is set to <${pong_timeout}>.") }
+
+  if $help_file != undef { validate_absolute_path($help_file) }
+  if $motd_file != undef { validate_absolute_path($motd_file) }
+  if $pid_file != undef { validate_absolute_path($pid_file) }
+  if $chroot_dir != undef { validate_absolute_path($chroot_dir) }
+  if $include_dir != undef { validate_absolute_path($include_dir) }
+  if $certfile != undef { validate_absolute_path($certfile) }
+  if $keyfile != undef { validate_absolute_path($keyfile) }
+  if $dhfile != undef { validate_absolute_path($dhfile) }
+
+  validate_re($ipv6, '^(yes|no)$', "${myclass}::ipv6 may be either 'yes' or 'no' and is set to <${ipv6}>.")
+  validate_re($ipv4, '^(yes|no)$', "${myclass}::ipv4 may be either 'yes' or 'no' and is set to <${ipv4}>.")
+  validate_re($dns, '^(yes|no)$', "${myclass}::dns may be either 'yes' or 'no' and is set to <${dns}>.")
+  validate_re($ident, '^(yes|no)$', "${myclass}::ident may be either 'yes' or 'no' and is set to <${ident}>.")
+  validate_re($allow_remote_op, '^(yes|no)$', "${myclass}::allow_remote_op may be either 'yes' or 'no' and is set to <${allow_remote_op}>.")
+  validate_re($cloak_user_to_nick, '^(yes|no)$', "${myclass}::cloak_user_to_nick may be either 'yes' or 'no' and is set to <${cloak_user_to_nick}>.")
+  validate_re($more_privacy, '^(yes|no)$', "${myclass}::more_privacy may be either 'yes' or 'no' and is set to <${more_privacy}>.")
+  validate_re($notice_auth, '^(yes|no)$', "${myclass}::notice_auth may be either 'yes' or 'no' and is set to <${notice_auth}>.")
+  validate_re($oper_can_use_mode, '^(yes|no)$', "${myclass}::oper_can_use_mode may be either 'yes' or 'no' and is set to <${oper_can_use_mode}>.")
+  validate_re($oper_chanp_autoop, '^(yes|no)$', "${myclass}::oper_chanp_autoop may be either 'yes' or 'no' and is set to <${oper_chanp_autoop}>.")
+  validate_re($oper_server_mode, '^(yes|no)$', "${myclass}::oper_server_mode may be either 'yes' or 'no' and is set to <${oper_server_mode}>.")
+  validate_re($require_auth_ping, '^(yes|no)$', "${myclass}::require_auth_ping may be either 'yes' or 'no' and is set to <${require_auth_ping}>.")
+  validate_re($scrub_ctcp, '^(yes|no)$', "${myclass}::scrub_ctcp may be either 'yes' or 'no' and is set to <${scrub_ctcp}>.")
+
+  case type($ssl_enabled) {
+    'string': {
+      validate_re($ssl_enabled, '^(true|false)$', "${myclass}::ssl_enabled may be either 'true' or 'false' and is set to <${ssl_enabled}>.")
+      $ssl_enabled_real = str2bool($ssl_enabled)
+    }
+    'boolean': {
+      $ssl_enabled_real = $ssl_enabled
+    }
+    default: {
+      fail('${myclass}::ssl_enabled type must be true or false.')
+    }
+  }
 
   package { $::ngircd::param::package_name:
     ensure => latest,
