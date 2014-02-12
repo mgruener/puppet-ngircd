@@ -51,7 +51,7 @@ class ngircd(
   $motd_file = undef,
   $password = undef,
   $pid_file = '/var/run/ngircd/ngircd.pid',
-  $server_sid = $::ngircd::param::user,
+  $server_uid = $::ngircd::param::user,
   $server_gid = $::ngircd::param::group,
   $network = 'abba',
   $connect_retry = 60,
@@ -145,7 +145,7 @@ class ngircd(
       $ssl_real = $ssl
     }
     default: {
-      fail('${myclass}::ssl type must be true or false.')
+      fail("${myclass}::ssl type must be true or false.")
     }
   }
 
