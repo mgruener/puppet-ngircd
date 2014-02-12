@@ -80,6 +80,13 @@ class ngircd(
   $scrub_ctcp = 'no',
   $syslog_facility = 'local5',
   $webirc_password = undef,
+  $ssl_enabled = false,
+  $certfile = undef,
+  $keyfile = undef,
+  $keyfilepassword = undef,
+  $ciphers = [ 'SECURE128' ],
+  $dhfile = undef,
+  $ssl_ports = [ ],
 ) inherits ngircd::param {
 
   package { $::ngircd::param::package_name:
