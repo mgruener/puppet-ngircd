@@ -80,7 +80,7 @@ class ngircd(
   $scrub_ctcp = 'no',
   $syslog_facility = 'local5',
   $webirc_password = undef,
-  $ssl_enabled = false,
+  $ssl = false,
   $certfile = undef,
   $keyfile = undef,
   $keyfilepassword = undef,
@@ -124,16 +124,16 @@ class ngircd(
   validate_re($require_auth_ping, '^(yes|no)$', "${myclass}::require_auth_ping may be either 'yes' or 'no' and is set to <${require_auth_ping}>.")
   validate_re($scrub_ctcp, '^(yes|no)$', "${myclass}::scrub_ctcp may be either 'yes' or 'no' and is set to <${scrub_ctcp}>.")
 
-  case type($ssl_enabled) {
+  case type($ssl) {
     'string': {
-      validate_re($ssl_enabled, '^(true|false)$', "${myclass}::ssl_enabled may be either 'true' or 'false' and is set to <${ssl_enabled}>.")
-      $ssl_enabled_real = str2bool($ssl_enabled)
+      validate_re($ssl, '^(true|false)$', "${myclass}::ssl may be either 'true' or 'false' and is set to <${ssl}>.")
+      $ssl_real = str2bool($ssl)
     }
     'boolean': {
-      $ssl_enabled_real = $ssl_enabled
+      $ssl_real = $ssl
     }
     default: {
-      fail('${myclass}::ssl_enabled type must be true or false.')
+      fail('${myclass}::ssl type must be true or false.')
     }
   }
 
