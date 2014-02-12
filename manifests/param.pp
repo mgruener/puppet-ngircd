@@ -7,6 +7,7 @@ class ngircd::param(
     'RedHat': {
       $package_name = 'ngircd'
       $config_file = '/etc/ngircd.conf'
+      $user  = 'ngircd'
       $group = 'ngircd'
     }
     default: {
