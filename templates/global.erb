@@ -144,22 +144,23 @@
 
 <% if defined?(@ssl_real) && @ssl_real -%>
 [SSL]
-  <% if defined?(@certfile) -%>
+<% if defined?(@certfile) -%>
   CertFile = <%= @certfile %>
-  <% end -%>
-  <% if defined?(@ciphers) -%>
-  CipherList = <%= @ciphers.join(' ') %>
-  <% end -%>
-  <% if defined?(@dhfile) -%>
-  DHFile = <%= @dhfile %>
-  <% end -%>
-  <% if defined?(@keyfile) -%>
-  KeyFile = <%= @keyfile %>
-  <% end -%>
-  <% if defined?(@keyfilepassword) -%>
-  KeyFilePassword = <%= @keyfilepassword %>
-  <% end -%>
-  <% if defined?(@ssl_ports) -%>
-  Ports = <%= @ssl_ports.join(',') %>
-  <% end -%>
 <% end -%>
+<% if defined?(@ciphers) -%>
+  CipherList = <%= @ciphers.join(' ') %>
+<% end -%>
+<% if defined?(@dhfile) -%>
+  DHFile = <%= @dhfile %>
+<% end -%>
+<% if defined?(@keyfile) -%>
+  KeyFile = <%= @keyfile %>
+<% end -%>
+<% if defined?(@keyfilepassword) -%>
+  KeyFilePassword = <%= @keyfilepassword %>
+<% end -%>
+<% if defined?(@ssl_ports) -%>
+  Ports = <%= @ssl_ports.join(',') %>
+<% end -%>
+<% end -%>
+

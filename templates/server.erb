@@ -3,15 +3,15 @@
   Name = <%= @name %>
 <% end -%>
 <% if @passive == 'no' -%>
-  <% if defined?(@host) -%>
+<% if defined?(@host) -%>
   Host = <%= @host %>
-  <% end -%>
-  <% if defined?(@port) -%>
+<% end -%>
+<% if defined?(@port) -%>
   Port = <%= @port %>
-  <% end -%>
-  <% if defined?(@bind) -%>
+<% end -%>
+<% if defined?(@bind) -%>
   Bind = <%= @bind %>
-  <% end -%>
+<% end -%>
 <% end -%>
 <% if defined?(@local_password) -%>
   MyPassword = <%= @local_password %>
