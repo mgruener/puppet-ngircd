@@ -86,7 +86,7 @@ class ngircd(
   $keyfilepassword = undef,
   $ciphers = [ 'SECURE128' ],
   $dhfile = undef,
-  $ssl_ports = [ ],
+  $ssl_ports = [ 6669 ],
   $package_name = $::ngircd::param::package_name,
   $config_file = $::ngircd::param::config_file,
   $service_name = $::ngircd::param::service_name,
