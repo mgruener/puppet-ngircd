@@ -1,165 +1,165 @@
 [Global]
-<% if defined?(@server_name) -%>
+<% if @server_name -%>
   Name = <%= @server_name %>.
 <% end -%>
-<% if defined?(@admin_info1) -%>
+<% if @admin_info1 -%>
   AdminInfo1 = <%= @admin_info1 %>
 <% end -%>
-<% if defined?(@admin_info2) -%>
+<% if @admin_info2 -%>
   AdminInfo2 = <%= @admin_info2 %>
 <% end -%>
-<% if defined?(@admin_email) -%>
+<% if @admin_email -%>
   AdminEMail = <%= @admin_email %>
 <% end -%>
-<% if defined?(@help_file) -%>
+<% if @help_file -%>
   HelpFile = <%= @help_file %>
 <% end -%>
-<% if defined?(@info) -%>
+<% if @info -%>
   Info = <%= @info %>
 <% end -%>
-<% if defined?(@listen) -%>
+<% if @listen -%>
   Listen = <%= @listen %>
 <% end -%>
-<% if defined?(@motd_file) -%>
+<% if @motd_file -%>
   MotdFile = <%= @motd_file %>
 <% end -%>
-<% if defined?(@motd) -%>
+<% if @motd -%>
   MotdPhrase = <%= @motd %>
 <% end -%>
-<% if defined?(@password) -%>
+<% if @password -%>
   Password = <%= @password %>
 <% end -%>
-<% if defined?(@pid_file) -%>
+<% if @pid_file -%>
   PidFile = <%= @pid_file %>
 <% end -%>
-<% if defined?(@ports) -%>
+<% if @ports -%>
   Ports = <%= @ports.join(',') %>
 <% end -%>
-<% if defined?(@server_gid) -%>
+<% if @server_gid -%>
   ServerGID = <%= @server_gid %>
 <% end -%>
-<% if defined?(@server_uid) -%>
+<% if @server_uid -%>
   ServerUID = <%= @server_uid %>
 <% end -%>
-<% if defined?(@network) -%>
+<% if @network -%>
   Network = <%= @network %>
 <% end -%>
 
 [Limits]
-<% if defined?(@connect_retry) -%>
+<% if @connect_retry -%>
   ConnectRetry = <%= @connect_retry %>
 <% end -%>
-<% if defined?(@idle_timeout) -%>
+<% if @idle_timeout -%>
   IdleTimeout = <%= @idle_timeout %>
 <% end -%>
-<% if defined?(@max_connections) -%>
+<% if @max_connections -%>
   MaxConnections = <%= @max_connections %>
 <% end -%>
-<% if defined?(@max_connections_ip) -%>
+<% if @max_connections_ip -%>
   MaxConnectionsIP = <%= @max_connections_ip %>
 <% end -%>
-<% if defined?(@max_joins) -%>
+<% if @max_joins -%>
   MaxJoins = <%= @max_joins %>
 <% end -%>
-<% if defined?(@max_nick_length) -%>
+<% if @max_nick_length -%>
   MaxNickLength = <%= @max_nick_length %>
 <% end -%>
-<% if defined?(@max_list_size) -%>
+<% if @max_list_size -%>
   MaxListSize = <%= @max_list_size %>
 <% end -%>
-<% if defined?(@ping_timeout) -%>
+<% if @ping_timeout -%>
   PingTimeout = <%= @ping_timeout %>
 <% end -%>
-<% if defined?(@pong_timeout) -%>
+<% if @pong_timeout -%>
   PongTimeout = <%= @pong_timeout %>
 <% end -%>
 
 [Options]
-<% if defined?(@allowed_channel_types) -%>
+<% if @allowed_channel_types -%>
   AllowedChannelTypes = <%= @allowed_channel_types %>
 <% end -%>
-<% if defined?(@allow_remote_op) -%>
+<% if @allow_remote_op -%>
   AllowRemoteOper = <%= @allow_remote_op %>
 <% end -%>
-<% if defined?(@chroot_dir) -%>
+<% if @chroot_dir -%>
   ChrootDir = <%= @chroot_dir %>
 <% end -%>
-<% if defined?(@cloak_host) -%>
+<% if @cloak_host -%>
   CloakHost = <%= @cloak_host %>
 <% end -%>
-<% if defined?(@cloak_host_modex) -%>
+<% if @cloak_host_modex -%>
   CloakHostModeX = <%= @cloak_host_modex %>
 <% end -%>
-<% if defined?(@cloak_host_salt) -%>
+<% if @cloak_host_salt -%>
   CloakHostSalt = <%= @cloak_host_salt %>
 <% end -%>
-<% if defined?(@cloak_user_to_nick) -%>
+<% if @cloak_user_to_nick -%>
   CloakUserToNick = <%= @cloak_user_to_nick %>
 <% end -%>
-<% if defined?(@ipv4) -%>
+<% if @ipv4 -%>
   ConnectIPv4 = <%= @ipv4 %>
 <% end -%>
-<% if defined?(@ipv6) -%>
+<% if @ipv6 -%>
   ConnectIPv6 = <%= @ipv6 %>
 <% end -%>
-<% if defined?(@user_modes) -%>
+<% if @user_modes -%>
   DefaultUserModes = <%= @user_modes %>
 <% end -%>
-<% if defined?(@dns) -%>
+<% if @dns -%>
   DNS = <%= @dns %>
 <% end -%>
-<% if defined?(@ident) -%>
+<% if @ident -%>
   Ident = <%= @ident %>
 <% end -%>
-<% if defined?(@include_dir) -%>
+<% if @include_dir -%>
   IncludeDir = <%= @include_dir %>
 <% end -%>
-<% if defined?(@more_privacy) -%>
+<% if @more_privacy -%>
   MorePrivacy = <%= @more_privacy %>
 <% end -%>
-<% if defined?(@notice_auth) -%>
+<% if @notice_auth -%>
   NoticeAuth = <%= @notice_auth %>
 <% end -%>
-<% if defined?(@oper_can_use_mode) -%>
+<% if @oper_can_use_mode -%>
   OperCanUseMode = <%= @oper_can_use_mode %>
 <% end -%>
-<% if defined?(@oper_chanp_autoop) -%>
+<% if @oper_chanp_autoop -%>
   OperChanPAutoOp = <%= @oper_chanp_autoop %>
 <% end -%>
-<% if defined?(@oper_server_mode) -%>
+<% if @oper_server_mode -%>
   OperServerMode = <%= @oper_server_mode %>
 <% end -%>
-<% if defined?(@require_auth_ping) -%>
+<% if @require_auth_ping -%>
   RequireAuthPing = <%= @require_auth_ping %>
 <% end -%>
-<% if defined?(@scrub_ctcp) -%>
+<% if @scrub_ctcp -%>
   ScrubCTCP = <%= @scrub_ctcp %>
 <% end -%>
-<% if defined?(@syslog_facility) -%>
+<% if @syslog_facility -%>
   SyslogFacility = <%= @syslog_facility %>
 <% end -%>
-<% if defined?(@webirc_password) -%>
+<% if @webirc_password -%>
   WebircPassword = <%= @webirc_password %>
 <% end -%>
 
-<% if defined?(@ssl_real) && @ssl_real -%>
+<% if @ssl_real -%>
 [SSL]
-<% if defined?(@certfile) -%>
+<% if @certfile -%>
   CertFile = <%= @certfile %>
 <% end -%>
-<% if defined?(@ciphers) -%>
+<% if @ciphers -%>
   CipherList = <%= @ciphers.join(' ') %>
 <% end -%>
-<% if defined?(@dhfile) -%>
+<% if @dhfile -%>
   DHFile = <%= @dhfile %>
 <% end -%>
-<% if defined?(@keyfile) -%>
+<% if @keyfile -%>
   KeyFile = <%= @keyfile %>
 <% end -%>
-<% if defined?(@keyfilepassword) -%>
+<% if @keyfilepassword -%>
   KeyFilePassword = <%= @keyfilepassword %>
 <% end -%>
-<% if defined?(@ssl_ports) -%>
+<% if @ssl_ports -%>
   Ports = <%= @ssl_ports.join(',') %>
 <% end -%>
 <% end -%>

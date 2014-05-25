@@ -1,20 +1,20 @@
 [Channel]
-<% if defined?(@name) -%>
+<% if @name -%>
   Name = <%= @name %>
 <% end -%>
-<% if defined?(@topic) -%>
+<% if @topic -%>
   Topic = <%= @topic %>
 <% end -%>
-<% if defined?(@modes) -%>
+<% if @modes -%>
   Modes = <%= @modes %>
 <% end -%>
-<% if defined?(@key) -%>
+<% if @key -%>
   Key = <%= @key %>
 <% end -%>
-<% if defined?(@keyfile) -%>
+<% if @keyfile -%>
   KeyFile = <%= @keyfile %>
 <% end -%>
-<% if defined?(@max) -%>
+<% if @max -%>
   MaxUsers = <%= @max %>
 <% end -%>
 
