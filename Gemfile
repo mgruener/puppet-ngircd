@@ -6,7 +6,7 @@ else
   puppetversion = ['>= 2.7']
 end
 
-gem 'rake'
 gem 'puppet-lint'
 gem 'rspec-puppet'
-gem 'puppet', puppetversion
+gem 'puppet', puppetversion, :require => false
+gem 'puppetlabs_spec_helper', '>= 0.1.0'
