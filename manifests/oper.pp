@@ -3,7 +3,7 @@
 define ngircd::oper(
   $password = undef,
   $mask = '*!*@*',
-  $config_file = getvar('ngircd::config_file'),
+  $config_file = $ngircd::config_file,
 ) {
   include ngircd
 

@@ -4,7 +4,7 @@ define ngircd::channel(
   $key = undef,
   $keyfile = undef,
   $max = 100,
-  $config_file = getvar('ngircd::config_file'),
+  $config_file = $ngircd::config_file,
 ) {
   include ngircd
 

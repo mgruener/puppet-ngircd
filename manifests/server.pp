@@ -10,7 +10,7 @@ define ngircd::server(
   $group = '1',
   $service_mask = undef,
   $ssl = 'no',
-  $config_file = getvar('ngircd::config_file'),
+  $config_file = $ngircd::config_file,
 ) {
   include ngircd
 
