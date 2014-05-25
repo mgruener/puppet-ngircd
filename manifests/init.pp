@@ -95,6 +95,7 @@ class ngircd(
 
   $myclass = $module_name
 
+  validate_re($server_name,'\.',"$myclass::server_name has to contain a '.'!")
   if !is_integer($connect_retry) { fail("${myclass}::connect_retry must be an integer and is set to <${connect_retry}>.") }
   if !is_integer($idle_timeout) { fail("${myclass}::idle_timeout must be an integer and is set to <${idle_timeout}>.") }
   if !is_integer($max_connections) { fail("${myclass}::max_connections must be an integer and is set to <${max_connections}>.") }
